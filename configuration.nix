@@ -1,23 +1,18 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
-
 { config, pkgs, ... }:
 
 {
   imports =
-    [ # Include the results of the hardware scan.
+    [
       ./hardware-configuration.nix
       ./i3.nix
       ./home-manager.nix
     ];
   nixpkgs.config.allowUnfree = true;
-  # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "mad-chameleon"; # Define your hostname.
-  networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+  networking.hostName = "mad-chameleon";
+  networking.wireless.enable = true;
 
   # Select internationalisation properties.
   # i18n = {
@@ -28,29 +23,39 @@
 
   time.timeZone = "Europe/Riga";
 
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
   environment.systemPackages = with pkgs; [
     vim
     git
     google-chrome
+    keepassxc
+    insync
+
+    # i3
     compton
     rofi
 
+    # work
+    jetbrains.idea-ultimate
     slack
     docker
     kubectl
 
+    # util
     ag
     bat
     fd
+    pcmanfm
+    acpilight # xbacklight
+    thefuck
 
+    # python
+    python3
+    pythonPackages.i3ipc
+
+    # shell
     termite
     fish
     fzf
-
-    pcmanfm
-    acpilight # xbacklight
   ];
 
   environment.variables = {
@@ -78,10 +83,8 @@
   hardware.brightnessctl.enable = true;
 
   services.xserver.enable = true;
-  services.xserver.layout = "us";
-  # services.xserver.xkbOptions = "eurosign:e";
-
-  # Enable touchpad support.
+  services.xserver.layout = "us,ru";
+  services.xserver.xkbOptions = "grp:caps_toggle";
   services.xserver.libinput.enable = true;
 
   users.users.vorago = {

@@ -17,10 +17,6 @@ in
 
   home-manager.users.vorago = {
     programs = {
-      home-manager = {
-        enable = true;
-        path = "/home/vorago/code/home-manager";
-      };
       git = {
         enable = true;
         userName = "${name}";
@@ -42,6 +38,10 @@ in
       "Xft.lcdfilter" = "lcddefault";
       "Xcursor.theme" = "breeze_cursors";
       "Xcursor.size" = 48;
+    };
+
+    home.file = {
+      ".config/fish/functions/fish_greeting.fish".source = fish/fish_greeting.fish;
     };
   };
 }
