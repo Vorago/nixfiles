@@ -27,6 +27,10 @@ in
         font = "${font} 20";
         theme = "solarized";
       };
+      vim = {
+        enable = true;
+        settings = { ignorecase = true; };
+      };
     };
     
     xresources.properties = {
@@ -42,6 +46,7 @@ in
 
     home.file = {
       ".config/fish/functions/fish_greeting.fish".source = fish/fish_greeting.fish;
+      ".config/i3/i3-quickterm.json".source = i3/i3-quickterm.json;
     };
   };
 }

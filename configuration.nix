@@ -4,7 +4,7 @@
   imports =
     [
       ./hardware-configuration.nix
-      ./i3.nix
+      ./i3/i3.nix
       ./home-manager.nix
     ];
   nixpkgs.config.allowUnfree = true;
@@ -13,13 +13,6 @@
 
   networking.hostName = "mad-chameleon";
   networking.wireless.enable = true;
-
-  # Select internationalisation properties.
-  # i18n = {
-  #   consoleFont = "Lat2-Terminus16";
-  #   consoleKeyMap = "us";
-  #   defaultLocale = "en_US.UTF-8";
-  # };
 
   time.timeZone = "Europe/Riga";
 
@@ -75,6 +68,7 @@
   };
 
   programs.fish.enable = true;
+  programs.thefuck.enable = true;
 
   virtualisation.docker.enable = true;
 
@@ -103,5 +97,4 @@
   ];
 
   system.stateVersion = "19.03";
-
 }
