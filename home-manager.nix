@@ -45,7 +45,11 @@ in
     };
 
     home.file = {
-      ".config/fish/functions/fish_greeting.fish".source = fish/fish_greeting.fish;
+      ".config/fish/functions".source = ./theme-bobthefish/functions;
+      ".config/fish/fish_mode_prompt.fish".source = ./theme-bobthefish/fish_mode_prompt.fish;
+      ".config/fish/fish_prompt.fish".source = ./theme-bobthefish/fish_prompt.fish;
+      ".config/fish/fish_right_prompt.fish".source = ./theme-bobthefish/fish_right_prompt.fish;
+      ".config/fish/fish_title.fish".source = ./theme-bobthefish/fish_title.fish;
       ".config/i3/i3-quickterm.json".source = i3/i3-quickterm.json;
     };
   };

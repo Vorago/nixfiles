@@ -32,6 +32,12 @@
     slack
     docker
     kubectl
+    go_1_12
+
+    # rust
+    rustc
+    rustup
+    cargo
 
     # util
     ag
@@ -40,6 +46,7 @@
     pcmanfm
     acpilight # xbacklight
     thefuck
+    expect # shell automation
 
     # python
     python3
@@ -49,6 +56,7 @@
     termite
     fish
     fzf
+    direnv
   ];
 
   environment.variables = {
@@ -65,6 +73,9 @@
     # Preferred applications
     EDITOR = "vim";
     BROWSER = "google-chrome-stable";
+
+    GOROOT = [ "${pkgs.go_1_12.out}/share/go" ];
+    GOPATH = "/home/vorago/go";
   };
 
   programs.fish.enable = true;
